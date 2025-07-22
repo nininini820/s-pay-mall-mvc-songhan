@@ -9,7 +9,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/s-pay-mall?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/s-pay-mall?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,7 +22,10 @@ weixin:
   config:
     originalid: gh_db9aec6fcfc2
     token: b8b6
-    accessToken: 94_L18wLaPdzQfM2ExFrkOKJSVE6yg6DEIPHzaD20E2UGxTWiKH2s8zb7lO1k5r2LsN_JrB8F1YUyEro9DuH6_THpt-eh4vToBoIVncBzXAclLcgnkPuvAzwuQn0pQCSEbACAGWI  # ⚠️ 使用你自己的 access_token（有效期2小时）
+    app-id: wx82a7dcc7ff7363c1
+    app-secret: f7f05d198d6ec4b03d816c0ab742a9a6
+    template_id: RbEZ2jo47dQmF4A7_Ku7RsDy1x_5by6bk1Ox6rPCl4Y
+    #accessToken: 94_L18wLaPdzQfM2ExFrkOKJSVE6yg6DEIPHzaD20E2UGxTWiKH2s8zb7lO1k5r2LsN_JrB8F1YUyEro9DuH6_THpt-eh4vToBoIVncBzXAclLcgnkPuvAzwuQn0pQCSEbACAGWI  # ⚠️ 使用你自己的 access_token（有效期2小时）
 
 
 

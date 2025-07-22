@@ -3,11 +3,13 @@ package com.songhan.controller;
 import com.songhan.common.weixin.MessageTextEntity;
 import com.songhan.common.weixin.SignatureUtil;
 import com.songhan.common.weixin.XmlUtil;
+import com.songhan.service.ILoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +28,9 @@ public class WeixinPortalController {
     private String originalid;
     @Value("${weixin.config.token}")
     private String token;
+
+    @Resource
+    private ILoginService loginService;
 
     // 存储用户状态：openid -> mode
     private static final Map<String, String> userModeMap = new HashMap<>();
@@ -65,6 +70,12 @@ public class WeixinPortalController {
             log.info("接收微信公众号信息请求{}开始 {}", openid, requestBody);
             // 消息转换
             MessageTextEntity message = XmlUtil.xmlToBean(requestBody, MessageTextEntity.class);
+
+            if ("event".equals(message.getMsgType()) && "SCAN".equals(message.getEvent())) {
+                loginService.saveLoginState(message.getTicket(), openid);
+                return buildMessageTextEntity(openid,"登录成功");
+
+            }
             return buildMessageTextEntity(openid, "你好，" + message.getContent());
         } catch (Exception e) {
             log.error("接收微信公众号信息请求{}失败 {}", openid, requestBody, e);
