@@ -70,8 +70,7 @@ public class OrderServiceImpl implements IOrderService {
                     .build();
 
         } else if (unpaidOrder != null && Constants.OrderStatusEnum.CREATE.getCode().equals(unpaidOrder.getStatus())) {
-            //todo
-
+            //掉单
             PayOrder payOrder = doPrepayOrder(unpaidOrder.getProductId(), unpaidOrder.getProductId(),unpaidOrder.getOrderId(), unpaidOrder.getTotalAmount());
 
             return PayOrderRes.builder()
@@ -94,7 +93,7 @@ public class OrderServiceImpl implements IOrderService {
                 .status(Constants.OrderStatusEnum.CREATE.getCode())
                 .build());
 
-        //3. 创建支付单 todo
+        //3. 创建支付单
 
         PayOrder payOrder = doPrepayOrder(productVO.getProductId(), productVO.getProductId(),orderId, productVO.getPrice());
 
