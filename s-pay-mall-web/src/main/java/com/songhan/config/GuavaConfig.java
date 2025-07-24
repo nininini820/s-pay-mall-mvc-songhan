@@ -4,6 +4,7 @@ package com.songhan.config;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.eventbus.EventBus;
+import com.songhan.listener.OrderPaySuccessListener;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -33,6 +34,14 @@ public class GuavaConfig {
                 .expireAfterWrite(1, TimeUnit.HOURS)
                 .build();
     }
+
+    @Bean
+    public EventBus eventBusListener(OrderPaySuccessListener orderPaySuccessListener) {
+        EventBus eventBus = new EventBus();
+        eventBus.register(orderPaySuccessListener);
+        return  eventBus;
+    }
+
 
 
 

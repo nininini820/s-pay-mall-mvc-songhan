@@ -1,7 +1,7 @@
 package com.songhan.service.weixin;
 
 
-import com.songhan.domain.po.WeixinTemplateMessageVO;
+import com.songhan.domain.vo.WeixinTemplateMessageVO;
 import com.songhan.domain.req.WeixinQrCodeReq;
 import com.songhan.domain.res.WeixinQrCodeRes;
 import com.songhan.domain.res.WeixinTokenRes;

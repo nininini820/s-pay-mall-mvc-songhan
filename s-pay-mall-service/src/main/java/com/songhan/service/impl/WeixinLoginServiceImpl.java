@@ -3,7 +3,7 @@ package com.songhan.service.impl;
 import com.songhan.domain.req.WeixinQrCodeReq;
 import com.songhan.domain.res.WeixinQrCodeRes;
 import com.songhan.domain.res.WeixinTokenRes;
-import com.songhan.domain.po.WeixinTemplateMessageVO;
+import com.songhan.domain.vo.WeixinTemplateMessageVO;
 import com.songhan.service.ILoginService;
 import com.songhan.service.weixin.IWeixinApiService;
 import com.google.common.cache.Cache;

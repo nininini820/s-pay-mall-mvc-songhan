@@ -1,4 +1,4 @@
-package com.songhan.domain.po;
+package com.songhan.domain.vo;
 
 import java.util.HashMap;
 import java.util.Map;
